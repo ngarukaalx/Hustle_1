@@ -14,7 +14,7 @@ class County(BaseModel, Base):
     """Representation of county"""
     if models.storage_t == "db":
         __tablename__ = 'counties'
-        name = Column(String(128), nullable=False)
+        name = Column(String(128), nullable=False, unique=True)
         towns = relationship("Town", backref="county", cascade="all, delete, delete-orphan")
     else:
         name = ""

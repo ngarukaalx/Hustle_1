@@ -55,3 +55,25 @@ class FileStorage:
         except:
             pass
 
+    def get(self, cls, id):
+        """A method to retrive one object"""
+        if cls not in classes.values():
+            return None
+
+        all_cls = models.storage.all(cls)
+        for value in all_cls.values():
+            if (value.id == id):
+                return value
+        return None
+
+    def count(self, cls-None):
+        """Count the number objects in storage"""
+        all_class = classes.values()
+        if not cls:
+            count = 0
+            for clsa in all_class:
+                count += len(models.storage.all(clsa).values())
+        else:
+            count = len(models.storage.all(cls).values())
+        return count
+

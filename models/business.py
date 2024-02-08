@@ -16,12 +16,14 @@ class Business(BaseModel, Base):
         name = Column(String(128), nullable=False)
         user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
         owner = relationship("User", back_populates="businesses")
+        logo = relationship("Logo", back_populates="business_logo", cascade="all, delete, delete-orphan")
         videos = relationship("Video", back_populates="business_videos", cascade="all, delete, delete-orphan")
         images = relationship("Image", back_populates="business_images", cascade="all, delete, delete-orphan")
         town_id = Column(String(60), ForeignKey('towns.id'), nullable=True)
         town = relationship("Town", backref="businesses_town")
         county_id = Column(String(60), ForeignKey('counties.id'), nullable=False)
         county = relationship("County", backref="businesses_county")
+        category_id = Column(String(60), ForeignKey('categories.id'), nullable=True)
         description = Column(String(255), nullable=True)
         exact_location = Column(String(200), nullable=True)
     else:
@@ -29,3 +31,7 @@ class Business(BaseModel, Base):
         user_id = ""
         description = ""
         exact_location = ""
+
+    def __init__(self, *args, **kwargs):
+        """initializes business"""
+        super().__init__(*args, **kwargs)

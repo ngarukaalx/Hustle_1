@@ -11,13 +11,15 @@ from models.business import Business
 from models.video import Video
 from models.image import Image
 from models.user import User
+from models.category import Category
+from models.logo import Logo
 from os import getenv
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-classes = {"BaseModel": BaseModel, "User": User, "County": County,
-        "Town": Town, "Business": Business, "Video": Video, "Image": Image}
+classes = {"County": County, "User": User,
+        "Town": Town, "Business": Business, "Video": Video, "Image": Image, "Category": Category, "Logo": Logo}
 
 class DBStorage:
     """class for interaction with database"""
@@ -68,6 +70,10 @@ class DBStorage:
         if obj is not None:
             self.__session.delete(obj)
 
+    def close(self):
+        """call remove on session"""
+        self.__session.remove()
+
     def reload(self):
         """reloads data from the database
         cretes the current database session"""
@@ -77,4 +83,25 @@ class DBStorage:
         session = scoped_session(session_factoty)
         self.__session = session
 
+    def get(self, cls, id):
+        """A method to retrive one object"""
+        if cls not in classes.values():
+            return None
+        all_cls = models.storage.all(cls)
+        for value in all_cls.values():
+            if (value.id == id):
+                return value
+        return None
 
+    def count(self, cls=None):
+        """A method to count the number of objects in storage"""
+        all_class = classes.values()
+
+        if not cls:
+            count = 0
+            for clsa in all_class:
+                count += len(models.storage.all(clsa).values())
+        else:
+            count = len(models.storage.all(cls).values())
+
+        return count

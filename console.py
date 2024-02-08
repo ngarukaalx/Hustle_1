@@ -12,10 +12,12 @@ from models.business import Business
 from models.video import Video
 from models.image import Image
 from models.user import User
+from models.category import Category
+from models.logo import Logo
 import shlex # for removing quotes and replacing _ with space
 
 classes = {"BaseModel": BaseModel, "User": User, "County": County,
-        "Town": Town, "Business": Business, "Video": Video, "Image": Image}
+        "Town": Town, "Business": Business, "Video": Video, "Image": Image, "Category": Category, "Logo": Logo}
 
 class HSTLCommand(cmd.Cmd):
     """HSTL console"""
