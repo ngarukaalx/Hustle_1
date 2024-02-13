@@ -44,12 +44,22 @@ def delete_video(video_id):
 @app_views.route('/business/<business_id>/videos', methods=['POST'], strict_slashes=False)
 def creates_video(business_id):
     """Creates a video"""
-    if not request.get_json():
-        abort(404, description="Not a JSON")
-    if 'url' not in request.get_json():
-        abort(404, description="Missing url")
-    data = request.get_json()
-    instance = Video(**data)
+    if 'videoFile' not in request.files:
+        abort(404, description="Not video file provides")
+    vide_file = request.files['videoFile']
+    video_description = request.form.get('description', '')
+
+    if video_file.filename == "":
+        abort(400, description="Empty video file name")
+    # save the video file to the specified derectory
+    video_path = f"hustle/uploads/videos/{business_id}_{secure_filename(video_file.filename)}"
+    vide_file.save(video_path)
+    # create a video instance and save it to the database
+    video_data = {
+            'url': video_path,
+            'description': video_description,
+            }
+    instance = Video(**video_data)
     instance.business_id = business_id
     instance.save()
     return make_response(jsonify(instance.to_dict()), 201)

@@ -6,6 +6,26 @@ from models.county import County
 from models.town import Town
 from api.v1.views import app_views
 from flask import abort, jsonify, make_response, request
+from flask_login import login_user, current_user
+
+
+@app_views.route('/login', methods=['GET', 'POST'], strict_slashes=False)
+def login():
+    """Handles login"""
+    if not request.get_json():
+        abort(400, description="Not a JSON")
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+        user = next((user for user in storage.all(User).values() if user.email == email), None)
+        
+        if user and user.check_password(password):
+            login_user(user)
+            return jsonify({'message': 'Login successful'}), 200
+        else:
+            return jsonify({'message': 'Invalid credentials'}), 401
+
+
 
 @app_views.route('/users', methods=['GET'], strict_slashes=False)
 def get_users():
