@@ -6,21 +6,42 @@ from models.county import County
 from models.town import Town
 from api.v1.views import app_views
 from flask import abort, jsonify, make_response, request
-from flask_login import login_user, current_user
+from flask_login import login_user, current_user, logout_user, login_required
+from flask import session
 
 
-@app_views.route('/login', methods=['GET', 'POST'], strict_slashes=False)
+@app_views.route('/logout', methods=['POST'], strict_slashes=False)
+def logout():
+    """logs out the current user"""
+    logout_user()
+    return jsonify({'message': 'Logout successful'}), 200
+
+
+@app_views.route('/user_id', methods=['POST'], strict_slashes=False)
+def user_id():
+    """returns the id of the current login user"""
+    if current_user.is_authenticated:
+        user = {"user_id": current_user.get_id()}
+        print(current_user.get_id())
+        return jsonify(user)
+    else:
+        print("No")
+        return jsonify({"message": "User not authenticated"}), 401
+
+
+@app_views.route('/login', methods=['POST'], strict_slashes=False)
 def login():
     """Handles login"""
     if not request.get_json():
         abort(400, description="Not a JSON")
     if request.method == 'POST':
-        email = request.form.get('email')
-        password = request.form.get('password')
+        data = request.get_json()
+        email = data.get('email')
+        password = data.get('password')
         user = next((user for user in storage.all(User).values() if user.email == email), None)
-        
         if user and user.check_password(password):
             login_user(user)
+            print("Session Data:", session)
             return jsonify({'message': 'Login successful'}), 200
         else:
             return jsonify({'message': 'Invalid credentials'}), 401

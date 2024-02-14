@@ -12,9 +12,10 @@ import sqlalchemy
 from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 from hashlib import md5
+from flask_login import UserMixin
 
 
-class User(BaseModel, Base):
+class User(BaseModel, Base, UserMixin):
     """Representation of a user"""
     if models.storage_t == 'db':
         __tablename__ = 'users'
@@ -47,6 +48,16 @@ class User(BaseModel, Base):
             value = md5(value.encode()).hexdigest()
         super().__setattr__(name, value)
 
-    def check_password(password):
+    def check_password(self, password):
         """Check if the provided password matches the user's password."""
         return self.password == md5(password.encode()).hexdigest()
+
+
+    def is_active(self):
+        """"Returns true if the user is active (non-disabled)"""
+        return True
+
+
+    def get_id(self):
+        """Return the unique identifier for the user (unicode or str)"""
+        return str(self.id)

@@ -2,6 +2,7 @@
 """Flask Application"""
 
 from models import storage
+from models.user import User
 from api.v1.views import app_views
 from os import environ
 from flask import Flask, render_template, make_response, jsonify
@@ -9,13 +10,15 @@ from flask_login import LoginManager
 from flask_cors import CORS
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = '0712408072'
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.register_blueprint(app_views)
 login_manager = LoginManager(app)
+login_manager.login_view = 'login'
 app.debug = True
 from flask_cors import CORS
 
-CORS(app, resources={r"/api/v1/*": {"origins": "http://localhost:8080", "supports_credentials": True, "headers": "Content-Type"}})
+CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
 
 
 @app.teardown_appcontext
@@ -33,7 +36,8 @@ def not_found(error):
 @login_manager.user_loader
 def load_user(user_id):
     """Get user object by id"""
-    return storage.get(user_id)
+    print("Am beibg called user_loader")
+    return storage.get(User, user_id)
 
 
 if __name__ == "__main__":
