@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<htm lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hustle - Discover Local Businesses</title>
+        <link rel="stylesheet" href="../static/styles/3_main_biz.css">
+    </head>
+    <body>
+        <header class=" container Top-bar">
+            <a href="home_hustle.html"><img src="business_logo.jpg" alt="Business Logo"></a>
+            <div class="side-bar">
+                <a href="about.html">About</a>
+            </div>
+        </header>
+        <section class="msg-welcome">
+            <div class="congrats">
+                <h1>Congratualitions! its good to have you</h1>
+                <h2>lets set up your business</h2>
+            </div>
+        </section>
+        <form action="#" method="post">
+            <fieldset class="account-info">
+                <legend>Create business</legend>
+                <label for="county" class="county-label">Select Town:</label>
+                <select id="county" name="County">
+                    <option value="Nakuru" selected>Nakuru</option>
+                    <option vlaue="Tran-zoia" selected>Tran-zoia</option>
+                </select>
+                <label for="town" class="town-label">Select Town:</label>
+                <select id="town" name="Town">
+                    <option value="Nakuru" selected>Nakuru</option>
+                    <option value="Kitale" selected>Kitale</option>
+                </select>
+            </fieldset>
+            <fieldset class="account-info">
+                <label class="location">
+                    Exact loaction:
+                    <textarea name="comment">opposite fly over......</textarea>
+                </label>
+                <label>
+                    Describe your business:
+                    <textarea name="comment">Dealers in......</textarea>
+                </label>
+                <label>
+                    Attach Logo:
+                    <input type="file" name="file">
+                </label>
+                <label>
+                    Business name:
+                    <input type="text" name="Business name" placeholder="Business name">
+                </label>
+            </fieldset>
+            <fieldset class="account-info">
+                <input  class="btn" type="submit" name="submit" value="Submit">
+            </fieldset>
+        </form>
+    </body>
+</htm>

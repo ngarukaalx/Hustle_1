@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hustle - Discover Local Businesses</title>
+        <link rel="stylesheet" href="assets/styles/2_main.css">
+        <link rel="stylesheet" href="assets/styles/3_main_biz.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js?"></script>
+        <script type="text/javascript" src="assets/scripts/uploads.js"></script>
+    </head>
+    <body>
+        <header class="Top-bar">
+            <a href="home_hustle.html"><img src="business_logo.jpg" alt="Business Logo"></a>
+            <div class="side-bar">
+                <a href="register.html"><button class="register-button">Login</button></a>
+                <a href="about.html">About</a>
+            </div>
+        </header>
+        <section class="busines-details">
+            <section class="details">
+                <div class="logo-biz">
+                    <img src="assets/images/logo.jpg" alt="Logo">
+                </div>
+                <div class="busines-name">
+                    <h1>Electronc bazement</h1>
+                </div>
+                <p>County: Tran-zoia</p>
+                <p>Town: Kitale</p>
+                <p>exact: located past fyl over opposite show groud</p>
+            </section>
+        </section>
+        <section class="uploads">
+            <button>+upload</button><br>
+        </section>
+        <form  class="overlay" id="uploadForm" action="#" method="post">
+            <fieldset class="account-info">
+                <legend>Create video</legend>
+                <label>
+                    Select Video 
+                    <input type="file" id="videoFile" name="videoFile" accept="video/*" required>
+                </label>
+                <label>
+                    Write Something
+                    <textarea id="description" name="description" rows="4"></textarea>
+                  </label>
+            </fieldset>
+            <fieldset class="account-info">
+                <input  class="btn" type="submit" name="submit" value="Upload">
+            </fieldset>
+            <fieldset class="account-info">
+                <button  class="close" id="closeModal">Close</button>
+            </fieldset>
+        </form>
+        <section class="image-page">
+            <a class="link-page" href="#"><button>Images</button></a>
+        </section>
+        <section class="down-side">
+            <section class="vids">
+                <section class="list-vid">
+                    <video controls>
+                        <source src="assets/video/y2mate.com - KOChora ft  Femi One Official Music Video SMS SKIZA 5802382 to 811 To set as Skiza Tune_1080p.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="desc">
+                        <p id="desc">one of the best devices we got reach out lets give value to your money.Open for 24hours how about try this</p>
+                    </div>
+                </section>
+            </section>
+            <aside class="reach-out">
+                <div class="bs-desc">
+                    <h3>Dealers in all kinds of electronics</h3><br>
+                    <a href="#">whatsapp</a><br><br>
+                    <button class="msg">message</button>
+                </div>
+            </aside>
+        </section>
+
+    </body>
+</html>
