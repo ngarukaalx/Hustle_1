@@ -1,0 +1,201 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*
+=====================================
+Grid
+=====================================
+*/
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+             box-sizing: border-box;
+}
+.intro h1 {
+    font-weight: bolder;
+    font-size: 50px;
+}
+.intro p {
+    font-weight: bold;
+}
+.intro h1,
+.intro p {
+    margin-bottom: 22px;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #888;
+    font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.intro {
+    background-color: #466368;
+    background: -webkit-linear-gradient(#648880, #293f50);
+    background:    -moz-linear-gradient(#648880, #293f50);
+    background:         linear-gradient(#648880, #293f50);
+    font-size: 21px;
+    line-height: 33px;
+    color: #a9b2b9;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+.Top-bar {
+    border: 1px solid #dfe2e5;
+    background-color: rgba(255, 255, 255, 0.726);
+    color: black;
+    padding: 10px;
+}
+.side-bar {
+    display: inline-block;
+    float: right;
+}
+.register-button {
+    margin-right: 100px;
+}
+.side-bar a {
+    padding-right: 30px;
+}
+.container.filter-box {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.container.filter-box label,
+.container.filter-box select,
+.container.filter-box .serch,
+.container.filter-box .image-page {
+  display: inline-block;
+  margin-right: 50px; /* Adjust the margin as needed */
+}
+.container.busines-section {
+    border: 1px solid #a1e2f4;
+    float: left;
+    margin-right: 50px;
+} 
+.container.busines-section {
+    width: 70%;
+    background-color: white;
+    border-radius: 5px;
+    padding-bottom: 15px;
+    overflow: hidden;
+}
+.biz-info {
+    overflow: hidden;
+}
+.biz {
+    display: inline-block;
+}
+
+.biz-logo {
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgb(12, 12, 12);
+    border-radius: 50%;
+    float: left;
+    overflow: hidden;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+.biz-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Removes extra space below the image */
+    border-radius: 50px;
+    margin-right: 50px;
+  }
+.description {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+.container.busines-section video {
+    width: 100%;
+}
+.biz-info {
+    margin-left: 100px;
+    margin-top: 30px;
+}
+.biz-info h2 {
+    font-weight: bold;
+    color: black;
+    font-size: large;
+}
+.btn-fisrt,
+.btn-second {
+    float: left;
+    margin-top: 10px;
+}
+.btn-fisrt {
+    margin-right: 20px;
+}
+.btn-third {
+    float: right;
+    margin-top: 10px;
+}
+.right {
+    float: right;
+    margin-right: 50px;
+}
+.upload {
+    margin-left: 60px;
+    background-color: red;
+}
+.register-button {
+    background-color: orangered;
+    border-radius: 5px;
+    border: #dfe2e5;
+}
