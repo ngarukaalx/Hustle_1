@@ -17,7 +17,7 @@ def logout():
     return jsonify({'message': 'Logout successful'}), 200
 
 
-@app_views.route('/user_id', methods=['POST'], strict_slashes=False)
+@app_views.route('/user_id', methods=['GET'], strict_slashes=False)
 def user_id():
     """returns the id of the current login user"""
     if current_user.is_authenticated:
@@ -101,12 +101,10 @@ def delete_user(user_id):
     return make_response(jsonify({}), 200)
 
 
-@app_views.route('/county/<county_id>/town/<town_id>/users',
+@app_views.route('/users',
         methods=['POST'], strict_slashes=False)
-def create_user(county_id, town_id):
+def create_user():
     """creates a new user with a county and town"""
-    county = storage.get(County, county_id)
-    town = storage.get(Town, town_id)
 
     if not request.get_json():
         abort(400, description="Not a JSON")
@@ -117,8 +115,6 @@ def create_user(county_id, town_id):
 
     data = request.get_json()
     instance = User(**data)
-    instance.county_id = county.id
-    instance.town_id = town.id
     instance.save()
     return make_response(jsonify(instance.to_dict()), 201)
 

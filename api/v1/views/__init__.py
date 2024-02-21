@@ -13,3 +13,4 @@ from api.v1.views.categories import *
 from api.v1.views.videos import *
 from api.v1.views.biz import *
 from api.v1.views.logos import *
+from api.v1.views.uploads import *

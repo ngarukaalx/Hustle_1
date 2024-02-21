@@ -4,15 +4,18 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Hustle - Discover Local Businesses</title>
-        <link rel="stylesheet" href="../static/styles/3_main_biz.css">
+	<link rel="stylesheet" href="../static/styles/3_main_biz.css?{{ cache_id }}">
         <script src="https://code.jquery.com/jquery-3.2.1.min.js?"></script>
-        <script type="text/javascript" src="static/scripts/login.js"></script>
-        <script type="text/javascript" src="static/scripts/auth.js"></script>
+	<script type="text/javascript" src="static/scripts/login.js?{{ cache_id }}"></script>
+	<script type="text/javascript" src="static/scripts/auth.js?{{ cache_id }}"></script>
+	<script type="text/javascript" src="static/scripts/option.js?{{ cache_id }}"></script>
+	<script type="text/javascript" src="static/scripts/sign.js?{{ cache_id }}"></script>
     </head>
     <body>
         <header class=" container Top-bar">
+            <a id="logo" href="0-hstl">Hustle</a>
             <div class="side-bar">
-                <a href="about.html">About</a>
+                    <a id="abt" href="about.html">About</a>
             </div>
         </header>
         <section class="welcome">
@@ -22,32 +25,28 @@
             <fieldset class="account-info">
                 <legend>sign up</legend>
                 <label>Select County:</label>
-                <select>
-                    <option value="Nakuru" selected>Nakuru</option>
-                    <option vlaue="Tran-zoia" selected>Tran-zoia</option>
+                <select id="selectcounty">
                 </select>
                 <label for="town" class="town-label">Select Town:</label>
                 <select id="town" name="Town">
-                    <option value="Nakuru" selected>Nakuru</option>
-                    <option value="Kitale" selected>Kitale</option>
                 </select>
             </fieldset>
             <fieldset class="account-info">
                 <label>
                     First name
-                    <input type="tel" name="Fist_name" placeholder="Fist_name" required>
+                    <input type="text" id="first" name="Fist_name" placeholder="Fist_name" required>
                 </label>
                 <label>
                     second name
-                    <input type="tel" name="second_name" placeholder="Second_name" required>
+                    <input type="tex" id="second" name="second_name" placeholder="Second_name" required>
                 </label>
-                <label>
+                <label>i
                     Email 
-                    <input type="email" name="email" placeholder="example@gmail.com" required>
+                    <input type="email" id="mail" name="email" placeholder="example@gmail.com" required>
                 </label>
                 <label>
                     Password
-                    <input type="password" name="password">
+                    <input type="password" id="pass" name="password">
                   </label>
             </fieldset>
             <fieldset class="account-info">

@@ -7,11 +7,19 @@ from models.user import User
 from api.v1.views import app_views
 from flask import abort, jsonify, make_response, request
 
-@app_views.route('/businesses', methods=['GET'], strict_slashes=False)
+@app_views.route('/business', methods=['GET'], strict_slashes=False)
 def get_businesses():
     """Retrive all businesses"""
     list_business = [business.to_dict() for business in storage.all(Business).values()]
     return jsonify(list_business)
+
+@app_views.route('/business/<user_id>', methods=['GET'], strict_slashes=False)
+def get_business_forid(user_id):
+    """Retrive business for a user"""
+    all_business = [business.to_dict() for business in storage.all(Business).values() if business.user_id == user_id]
+    if not all_business:
+        return jsonify({"Error": "No business for this user"}), 404
+    return jsonify(all_business)
 
 
 @app_views.route('/businesses/<business_id>', methods=['GET'], strict_slashes=False)
@@ -68,8 +76,8 @@ def creates_busines1(county_id, town_id, user_id):
     return make_response(jsonify(instance.to_dict()), 201)
 
 
-@app_views.route('/county/<county_id>/user/<user_id>/businesses', methods=['POST'], strict_slashes=False)
-def creates_busines2(county_id, user_id):
+@app_views.route('/createbiz', methods=['POST'], strict_slashes=False)
+def creates_busines2():
     """Creates a business with county_id and user_id"""
     if not request.get_json():
         abort(400, description="Not a JSON")
@@ -77,8 +85,6 @@ def creates_busines2(county_id, user_id):
         abort(400, description="Missing name")
     data = request.get_json()
     instance = Business(**data)
-    instance.county_id = county_id
-    instance.user_id = user_id
     instance.save()
     return make_response(jsonify(instance.to_dict()), 201)
 

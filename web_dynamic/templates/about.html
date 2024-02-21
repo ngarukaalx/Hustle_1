@@ -4,11 +4,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Hustle - Discover Local Businesses</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js?"></script>
+	<script type="text/javascript" src="static/scripts/logout.js?{{ cache_id }}"></script>
+	<script type="text/javascript" src="static/scripts/logout_1.js?{{ cache_id }}"></script>
     </head>
     <body>
         <header>
-            <a href="home_hustle.html"><img src="business_logo.jpg" alt="Business Logo"></a>
-            <a href="register.html"><button class="register-button">Login</button></a>
+            <a href="0-hstl"><img src="business_logo.jpg" alt="Business Logo"></a>
+            <a href="register"><button id="login" class="register-button">Login</button></a>
+	    <button id="logout" >Logout</button>
         </header>
         <h1>This my about page</h1>
     </body>

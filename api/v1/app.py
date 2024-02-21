@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Flask Application"""
 
+import os
 from models import storage
 from models.user import User
 from api.v1.views import app_views
@@ -16,9 +17,12 @@ app.register_blueprint(app_views)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 app.debug = True
-from flask_cors import CORS
 
-CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
+CORS(app, resources={r"/api/v1/*": {"origins": "*"}}, supports_credentials=True)
+# Specify an absolute path for the upload folder
+app.config['UPLOAD_FOLDER'] = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'uploads')
+# Ensure the upload folder exists
+os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 
 @app.teardown_appcontext

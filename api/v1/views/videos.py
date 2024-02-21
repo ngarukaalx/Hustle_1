@@ -9,7 +9,7 @@ from flask import abort, jsonify, make_response, request
 @app_views.route('/videos', methods=['GET'], strict_slashes=False)
 def get_videos():
     """Retrive all videos"""
-    all_videos = [video.to_dict() for video in storage.all(Video)]
+    all_videos = [video.to_dict() for video in storage.all(Video).values()]
     return jsonify(all_videos)
 
 
@@ -23,7 +23,7 @@ def get_video(video_id):
 
 @app_views.route('/businesses/<business_id>/videos', methods=['GET'], strict_slashes=False)
 def get_video_for_business(business_id):
-    """Get a business associated with a business"""
+    """Get a video  associated with a business"""
     videos = [video.to_dict() for video in storage.all(Video).values() if video.business_id == business_id]
     if not videos:
         abort(404)

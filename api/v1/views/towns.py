@@ -23,13 +23,23 @@ def get_town(county_id):
 
     return jsonify(list_towns)
 
-@app_views.route('towns/<town_id>', methods=['GET'], strict_slashes=False)
+@app_views.route('/towns/<town_id>', methods=['GET'], strict_slashes=False)
 def retrive_city(town_id):
     """Retrives a town"""
     towns = storage.get(Town, town_id)
     if not towns:
         abort(404)
     return jsonify(towns.to_dict())
+
+
+@app_views.route('/towns', methods=['GET'], strict_slashes=False)
+def get_all_towns():
+    """Get all towns"""
+    all_towns = storage.all(Town).values()
+    list_towns = []
+    for town in all_towns:
+        list_towns.append(town.to_dict())
+    return jsonify(list_towns)
 
 
 @app_views.route('/towns/<town_id>', methods=['DELETE'], strict_slashes=False)

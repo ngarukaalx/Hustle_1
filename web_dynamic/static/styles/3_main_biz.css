@@ -3,6 +3,9 @@
 *:after {
    box-sizing: border-box;
 }
+body {
+  background-color: #e3e6e9;
+}
 .msg-welcome {
   border: 1px solid #c6c7cc;
   border-radius: 5px;
@@ -83,4 +86,33 @@ legend {
     border: 1px solid #c6c7cc;
     cursor: pointer;
     margin-bottom: 15px;
-  } 
+  }
+  #logo {
+    border-top: 2px solid black;
+    background-color: aliceblue;
+    text-transform: uppercase;
+    font-size: medium;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-decoration: none;
+}
+#abt {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-decoration: none;
+}
+.Top-bar {
+  border-bottom: 3px solid #02080e;
+  background-color: #FFFFFF;
+  padding: 10px;
+}
+.side-bar {
+  display: inline-block;
+  float: right;
+}
+.side-bar a {
+  padding-right: 30px;
+  display: inline-block;
+}
+#sb {
+  background-color: rgb(89, 89, 235);
+  color: #FFFFFF;
+}

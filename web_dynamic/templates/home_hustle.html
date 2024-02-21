@@ -4,19 +4,22 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Hustle - Discover Local Businesses</title>
-        <link rel="stylesheet" href="assets/styles/main.css">
+	<link rel="stylesheet" href="../static/styles/main.css?{{ cache_id }}">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js?"></script>
+	<script type="text/javascript" src="static/scripts/logout.js?{{ cache_id }}"></script>
+	<script type="text/javascript" src="static/scripts/logout_1.js?{{ cache_id }}"></script>
+	<script type="text/javascript" src="static/scripts/home.js?{{ cache_id }}"></script>
     </head>
     <body>
         <header class=" container Top-bar">
-            <a href="home_hustle.html"><img src="business_logo.jpg" alt="Business Logo"></a>
+	    <a id="logo" href="0-hstl">Hustle</a>
             <div class="side-bar">
-                <a href="register.html"><button class="register-button">Login</button></a>
-                <a href="about.html">About</a>
+                <a href="register"><button id="login" class="register-button">Login</button></a>
+		<a href="#"><button id="logout" >Logout</button></a>
+                <a id="abt" href="about">About</a>
             </div>
         </header>
         <section class="container intro">
-            <h1>Welcome to Hustle</h1>
-            <p>Discover and support local businesses.</p>
         </section>
         <section class=" container filter-box">
             <label for="county-filter">Filter by county</label>
@@ -29,36 +32,10 @@
                 <input type="text" placeholder="Search...">
             </div>
             <div class="container image-page">
-                <a href="images.html">Images</a>
+                <a href="image">Images</a>
             </div>
         </section>
         <section class ="container busines-section">
-            <section class="biz">
-                <div class="biz-logo">
-                    <img src="assets/images/logo.jpg" alt="Logo">
-                </div>
-                <div class="biz-info">
-                    <h2>Business name</h2>
-                    <p>County: Nakuru</p>
-                    <p>Town: Nakuru</p>                
-                </div>
-            </section>
-            <div class="description">
-                <p>Welcome to our electronic shop come get all home appliances you might need different mode of payment available welcome lets make busimess as yor get the perfect value of yor money dont fail to reach us like and share come lets make yor house perfect live in the futre with our devices</p>
-            </div>
-            <video controls>
-                <source src="assets/video/y2mate.com - KOChora ft  Femi One Official Music Video SMS SKIZA 5802382 to 811 To set as Skiza Tune_1080p.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <section class="vid-bottom">
-                <div class="vid-info">
-                    <button class="btn-fisrt">comment</button>
-                    <button class="btn-second">message</button>
-                </div>
-                <div class="biz-data">
-                    <a href="user_page.html"><button class="btn-third">More</button></a>
-                </div>
-            </section>
         </section>
         <aside class="right">
             <div class="upload">

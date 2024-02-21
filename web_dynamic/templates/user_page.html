@@ -4,31 +4,26 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Hustle - Discover Local Businesses</title>
-        <link rel="stylesheet" href="assets/styles/2_main.css">
-        <link rel="stylesheet" href="assets/styles/3_main_biz.css">
+	<link rel="stylesheet" href="../static/styles/user.css?{{ cache_id }}">
+	<link rel="stylesheet" href="../static/styles/3_main_biz.css?{{ cache_id }}">
         <script src="https://code.jquery.com/jquery-3.2.1.min.js?"></script>
-        <script type="text/javascript" src="assets/scripts/uploads.js"></script>
+	<script type="text/javascript" src="static/scripts/overlay.js?{{ cache_id }}"></script>
+	<script type="text/javascript" src="/static/scripts/uploads.js?{{ cache_id }}"></script>
+	<script type="text/javascript" src="static/scripts/logout.js?{{ cache_id }}"></script>
+	<script type="text/javascript" src="static/scripts/logout_1.js?{{ cache_id }}"></script>
+	<script type="text/javascript" src="static/scripts/user_biz.js?{{ cache_id }}"></script>
+	<script type="text/javascript" src="static/scripts/updatuserviabtn.js?{{ cache_id }}"></script>
     </head>
     <body>
         <header class="Top-bar">
-            <a href="home_hustle.html"><img src="business_logo.jpg" alt="Business Logo"></a>
+	    <a id="logo" href="0-hstl">Hustle</a>
             <div class="side-bar">
-                <a href="register.html"><button class="register-button">Login</button></a>
-                <a href="about.html">About</a>
+		    <a href="register"><button id="login" class="register-button">Login</button></a>
+		    <a href="0-hstl"><button id="logout" class="register-button">Logout</button></a>
+		    <a id="abt" href="about.html">About</a>
             </div>
         </header>
         <section class="busines-details">
-            <section class="details">
-                <div class="logo-biz">
-                    <img src="assets/images/logo.jpg" alt="Logo">
-                </div>
-                <div class="busines-name">
-                    <h1>Electronc bazement</h1>
-                </div>
-                <p>County: Tran-zoia</p>
-                <p>Town: Kitale</p>
-                <p>exact: located past fyl over opposite show groud</p>
-            </section>
         </section>
         <section class="uploads">
             <button>+upload</button><br>
@@ -56,20 +51,10 @@
             <a class="link-page" href="#"><button>Images</button></a>
         </section>
         <section class="down-side">
-            <section class="vids">
-                <section class="list-vid">
-                    <video controls>
-                        <source src="assets/video/y2mate.com - KOChora ft  Femi One Official Music Video SMS SKIZA 5802382 to 811 To set as Skiza Tune_1080p.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="desc">
-                        <p id="desc">one of the best devices we got reach out lets give value to your money.Open for 24hours how about try this</p>
-                    </div>
-                </section>
-            </section>
+	    <section class="vids">
+	    </section>
             <aside class="reach-out">
                 <div class="bs-desc">
-                    <h3>Dealers in all kinds of electronics</h3><br>
                     <a href="#">whatsapp</a><br><br>
                     <button class="msg">message</button>
                 </div>

@@ -3,7 +3,7 @@
 from models import storage
 from models.logo import Logo
 from api.v1.views import app_views
-from flask import abort, jsonify, make_response, request
+from flask import Flask, abort, jsonify, make_response, request
 
 @app_views.route('/businesses/<business_id>/logo', methods=['POST'], strict_slashes=False)
 def create_logo(business_id):
