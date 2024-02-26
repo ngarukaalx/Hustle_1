@@ -4,16 +4,51 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Hustle - Discover Local Businesses</title>
+        <link rel="stylesheet" href="../styles/styles/about.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js?"></script>
-	<script type="text/javascript" src="static/scripts/logout.js?{{ cache_id }}"></script>
+  	<script type="text/javascript" src="static/scripts/logout.js?{{ cache_id }}"></script>
 	<script type="text/javascript" src="static/scripts/logout_1.js?{{ cache_id }}"></script>
     </head>
     <body>
-        <header>
-            <a href="0-hstl"><img src="business_logo.jpg" alt="Business Logo"></a>
-            <a href="register"><button id="login" class="register-button">Login</button></a>
-	    <button id="logout" >Logout</button>
+        <header class="Top-bar">
+            <a id="logo" href="#">Hustle</a>
+            <div class="side-bar">
+                <a href="register.html"><button class="register-button">Login</button></a>
+                <a href="register.html"><button class="register-button">Logout</button></a>
+                <a id="abt" href="about.html">About</a>
+            </div>
         </header>
-        <h1>This my about page</h1>
+        <h1 class="about-intro">A Place To Discover and Promote Local Business</h1>
+        <section class="first-section">
+            <section class="first-inner">
+                <p class="ft">Video-Powered Connections.</p>
+                <p class="descr">Engage Your Customers Like Never Before!<br>Showcase your business with captivating videos.<br> Connect, inspire, and build trust through the power of visual storytelling.<br> Join Hustle and take your customer interaction to new heights!
+                </p>
+            </section>
+            <section class="second-inner">
+                <img src="assets/images/about image.jpg">
+            </section>
+        </section>
+        <section class="second-section">
+            <section>
+                <p class="hd">How to display your business</p>
+                <ul class="first">
+                    <li>1.<a id="lg" href="register">Login</a></li>
+                    <li>2. Create your business by providing <br> your business details.Location, name, description.</li>
+                    <li>3. Post your videos/images.</li>
+                    <li>4. Post again videos/images.</li>
+                    <li>5. Repeat above.</li>
+                    <li>6. Repeate again.</li>
+                    <li><b class="simple">Simple!</b></li>
+                </ul>
+                <section class="second">
+                    <img src="assets/images/about2.jpg">
+                </section>
+            </section>
+        </section>
     </body>
+    <footer>
+        <a class="lg" href="#">Hustle</a>
+        <a class="social">Meet developer</a>
+    </footer>
 </html>
